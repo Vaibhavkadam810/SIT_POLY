@@ -35,23 +35,23 @@ public class ExampleActivity extends AppCompatActivity {
                 .build();
 
         Api api = retrofit.create(Api.class);
-//        Call<List<Example>> call = api.getData();
-//        call.enqueue(new Callback<List<Example>>() {
-//            @Override
-//            public void onResponse(Call<List<Example>> call, Response<List<Example>> response) {
-//                List<Example> examples = response.body();
-//                for (Example eg: examples){
-//                    Log.d("name",eg.getName());
-//                    Log.d("dept",eg.getDept());
-//                    Log.d("rollNo",eg.getRollNo());
-//                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<List<Example>> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        Call<List<Example>> call = api.getData();
+        call.enqueue(new Callback<List<Example>>() {
+            @Override
+            public void onResponse(Call<List<Example>> call, Response<List<Example>> response) {
+                List<Example> examples = response.body();
+                for (Example eg: examples){
+                    Log.d("name",eg.getName());
+                    Log.d("dept",eg.getDept());
+                    Log.d("rollNo",eg.getRollNo());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Example>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
         sendData.setOnClickListener(new View.OnClickListener() {
@@ -78,5 +78,7 @@ public class ExampleActivity extends AppCompatActivity {
                 });
             }
         });
+
+
     }
 }
